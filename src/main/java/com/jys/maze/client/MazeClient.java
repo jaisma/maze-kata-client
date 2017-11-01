@@ -22,6 +22,26 @@ public class MazeClient {
 		connector = new IRConnector();
 	}
 
+	public boolean checkAutoSolve(String persona) {
+		if (persona.equals("Human")) {
+			System.out.println("auto solve? type y : n");
+			String answer = takeInput();
+			if (answer.equals("y"))
+				autoSolveHuman();
+		} else if (persona.equals("Superman")) {
+			System.out.println("auto solve? type y : n");
+			String answer = takeInput();
+			if (answer.equals("y"))
+				autoSolveSuperman();
+		} else if (persona.equals("Aquaman")) {
+			System.out.println("auto solve? type y : n");
+			String answer = takeInput();
+			if (answer.equals("y"))
+				autoSolveAquaman();
+		}
+		return false;
+	}
+
 	public boolean start() {
 
 		if (!welcome()) {
@@ -34,24 +54,9 @@ public class MazeClient {
 		System.out.println(
 				"As a " + maze.getPersona() + " you have the following abilities: " + maze.getAbilities().toString());
 
-		if (maze.getPersona().equals("Human")) {
-			System.out.println("auto solve? type y : n");
-			String answer = takeInput();
-			if (answer.equals("y"))
-				autoSolveHuman();
-		} else if (maze.getPersona().equals("Superman")) {
-			System.out.println("auto solve? type y : n");
-			String answer = takeInput();
-			if (answer.equals("y"))
-				autoSolveSuperman();
-		} else if (maze.getPersona().equals("Aquaman")) {
-			System.out.println("auto solve? type y : n");
-			String answer = takeInput();
-			if (answer.equals("y"))
-				autoSolveAquaman();
+		if (checkAutoSolve(maze.getPersona())) {
+			run(maze);
 		}
-
-		run(maze);
 
 		System.out.println("Do you want to play again? type y : n");
 		String replay = takeInput();
@@ -195,7 +200,7 @@ public class MazeClient {
 	}
 
 	public String turn(String direction) {
-		String response = connector.turn(maze.getId(), direction);
+		connector.turn(maze.getId(), direction);
 		String currentDirection = maze.getStartingDirection();
 		String newDirection = "";
 		if (currentDirection.equals("north")) {
@@ -209,7 +214,7 @@ public class MazeClient {
 		}
 		maze.setStartingDirection(newDirection);
 
-		return response;
+		return newDirection;
 	}
 
 	public String takeInput() {
@@ -260,6 +265,22 @@ public class MazeClient {
 
 	public void autoSolveFlash() {
 
+	}
+
+	protected Maze getMaze() {
+		return maze;
+	}
+
+	protected void setMaze(Maze maze) {
+		this.maze = maze;
+	}
+
+	protected IRConnector getConnector() {
+		return connector;
+	}
+
+	protected void setConnector(IRConnector connector) {
+		this.connector = connector;
 	}
 
 }

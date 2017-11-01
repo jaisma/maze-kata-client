@@ -11,7 +11,19 @@ package com.jys.maze.model;
  *
  */
 public class Abilities {
+
 	boolean water, wood, fire, grass, quickFeet;
+
+	public Abilities() { }
+	
+	public Abilities(boolean water, boolean wood, boolean fire, boolean grass, boolean quickFeet) {
+		super();
+		this.water = water;
+		this.wood = wood;
+		this.fire = fire;
+		this.grass = grass;
+		this.quickFeet = quickFeet;
+	}
 
 	@Override
 	public String toString() {
@@ -55,7 +67,7 @@ public class Abilities {
 			return fire;
 		} else if (ability.equals("grass")) {
 			return grass;
-		} else if (ability.equals("quickFeet")) {
+		} else if (ability.equals("quickfeet")) {
 			return quickFeet;
 		} else {
 			return false;

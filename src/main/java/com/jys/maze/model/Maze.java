@@ -3,7 +3,7 @@ package com.jys.maze.model;
 import com.jys.maze.model.Abilities;
 
 /**
- * 
+ * Model for the totality of the maze game.
  * @author Jai Sun
  *
  */
@@ -11,6 +11,7 @@ public class Maze {
 	private Abilities abilities;
 	private String startingDirection, baseUrl, controller, persona, id;
 	private int xPos, yStartingPosition, yPos, xStartingPosition;
+	private int yExitPosition, xExitPosition; // Deprecated
 
 	public Abilities getAbilities() {
 		return abilities;
@@ -60,8 +61,6 @@ public class Maze {
 		this.id = id;
 	}
 
-
-
 	public int getyStartingPosition() {
 		return yStartingPosition;
 	}
@@ -69,8 +68,6 @@ public class Maze {
 	public void setyStartingPosition(int yStartingPosition) {
 		this.yStartingPosition = yStartingPosition;
 	}
-
-
 
 	public int getxStartingPosition() {
 		return xStartingPosition;
@@ -96,52 +93,57 @@ public class Maze {
 		this.xPos = xPos;
 	}
 
-// DEPRECATED -
-//	public int getyExitPosition() {
-//	return yExitPosition;
-//}
-//
-//public void setyExitPosition(int yExitPosition) {
-//	this.yExitPosition = yExitPosition;
-//}
-//	
-//public int getxExitPosition() {
-//return xExitPosition;
-//}
-//
-//public void setxExitPosition(int xExitPosition) {
-//this.xExitPosition = xExitPosition;
-//}	
 	
-//	private String[][] grid;
 	
-//	public void printGrid() {
-//		System.out.println("\nMaze Map:");
-//		for (int i = 0; i < grid.length; ++i) {
-//			for (int j = 0; j < grid[0].length; ++j) {
-//				System.out.print(grid[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-//		System.out.println(startingDirection);
-//		System.out.println();
-//	}
 	
-//	public void updateTile(int x, int y, String val) {
-//		// okay, x and y are flipped from my point of view :/
-//		grid[y][x] = val;
-//	}
-	
-//	public String getTile(int x, int y) {
-//		return grid[y][x];
-//	}
-	
-//	public String[][] getGrid() {
-//		return grid;
-//	}
 
-//	public void setGrid(String[][] grid) {
-//		this.grid = grid;
-//	}
+	// DEPRECATED -
+	public int getyExitPosition() {
+		return yExitPosition;
+	}
+
+	public void setyExitPosition(int yExitPosition) {
+		this.yExitPosition = yExitPosition;
+	}
+
+	public int getxExitPosition() {
+		return xExitPosition;
+	}
+
+	public void setxExitPosition(int xExitPosition) {
+		this.xExitPosition = xExitPosition;
+	}
+
 	
+	private String[][] grid;
+
+	public void printGrid() {
+		System.out.println("\nMaze Map:");
+		for (int i = 0; i < grid.length; ++i) {
+			for (int j = 0; j < grid[0].length; ++j) {
+				System.out.print(grid[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println(startingDirection);
+		System.out.println();
+	}
+
+	public void updateTile(int x, int y, String val) {
+		// okay, x and y are flipped from my point of view :/
+		grid[y][x] = val;
+	}
+
+	public String getTile(int x, int y) {
+		return grid[y][x];
+	}
+
+	public String[][] getGrid() {
+		return grid;
+	}
+
+	public void setGrid(String[][] grid) {
+		this.grid = grid;
+	}
+
 }

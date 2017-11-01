@@ -4,7 +4,7 @@
 
 	<groupId>com.jys.maze</groupId>
 	<artifactId>maze-kata-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>maze-kata-client</name>
@@ -96,5 +96,18 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>2.0.2-beta</version>
+			<scope>test</scope>
+		</dependency>
+	<!-- 	<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.11.10</version>
+			<scope>test</scope>
+		</dependency> -->
+
 	</dependencies>
 </project>
