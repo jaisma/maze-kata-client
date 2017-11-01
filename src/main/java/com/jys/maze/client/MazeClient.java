@@ -7,6 +7,12 @@ import com.jys.maze.connector.IRConnector;
 import com.jys.maze.model.Maze;
 import com.jys.maze.solver.AutoSolver;
 
+/**
+ * Client to run the game and interact with the player
+ * 
+ * @author Jai Sun
+ *
+ */
 public class MazeClient {
 
 	private Maze maze;
@@ -25,7 +31,8 @@ public class MazeClient {
 		MazeBuilder mb = new MazeBuilder();
 		maze = mb.buildMaze(connector.start()); // start
 
-		System.out.println("As a " + maze.getPersona() + " you have the following abilities: " + maze.getAbilities().toString());
+		System.out.println(
+				"As a " + maze.getPersona() + " you have the following abilities: " + maze.getAbilities().toString());
 
 		if (maze.getPersona().equals("Human")) {
 			System.out.println("auto solve? type y : n");

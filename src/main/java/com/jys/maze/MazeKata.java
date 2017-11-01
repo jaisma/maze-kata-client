@@ -3,7 +3,9 @@ package com.jys.maze;
 import com.jys.maze.client.MazeClient;
 
 /**
- * Maze Kata Client!
+ * Maze Kata Client! What does Kata mean?
+ * 
+ * @author Jai Sun
  *
  */
 public class MazeKata {

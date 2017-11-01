@@ -1,5 +1,15 @@
 package com.jys.maze.model;
 
+/**
+ * Model class to represent hero ability. There are currently total 5 available
+ * abilities. Depending on the hero persona, each ability is set to true or
+ * false.
+ * 
+ * Each ability is represented as boolean values.
+ * 
+ * @author Jai Sun
+ *
+ */
 public class Abilities {
 	boolean water, wood, fire, grass, quickFeet;
 
@@ -22,11 +32,21 @@ public class Abilities {
 			sb.append("quickFeet ");
 		}
 
-		return sb.toString();
+		return sb.toString().trim();
 
 	}
 
+	/**
+	 * Checks if hero has certain ability.
+	 * 
+	 * Assume valid input / correct spelling. All invalid match will return false.
+	 * 
+	 * @param ability
+	 *            string value of ability being checked.
+	 * @return true if yes, false otherwise and all fails.
+	 */
 	public boolean hasAbility(String ability) {
+		ability = ability.toLowerCase();
 		if (ability.equals("water")) {
 			return water;
 		} else if (ability.equals("wood")) {
